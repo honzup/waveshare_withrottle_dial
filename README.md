@@ -1,6 +1,8 @@
 # WiThrottle Dial
 
-A standalone, full single-loco JMRI WiThrottle throttle for the Waveshare ESP32-S3 Knob (360 × 360 round touch display). The dial connects directly to a JMRI WiThrottle server over Wi-Fi – browse the roster, acquire a loco, drive it with the rotary encoder around a 270° speed arc, change direction, sound the horn, toggle up to 32 functions, and emergency-stop. Recently driven locos are remembered in NVS across power cycles.
+A standalone, full single-loco JMRI WiThrottle throttle for the Waveshare ESP32-S3 Knob (360 × 360 round touch display). The dial connects directly to a JMRI WiThrottle server over Wi-Fi – browse the roster, acquire a loco, drive it with the rotary encoder around a 270° speed arc, change direction, sound the horn, toggle up to 32 functions, and emergency-stop. Recently driven locos are remembered in NVS across power cycles. Returning to the home screen automatically releases the loco.
+
+It can be powered directly from the USB connection or via a battery. I am using a 3.7 V 4000 mAh lithium-ion battery. The onboard battery compartment is small, so I have drilled a hole through the back of the unit — be careful when dismantling the dial. I still have to build a 3D enclosure for the battery.
 
 ## Screens
 
@@ -27,6 +29,7 @@ A standalone, full single-loco JMRI WiThrottle throttle for the Waveshare ESP32-
 - **Emergency stop** – immediate e-stop; the arc turns red.
 - **mDNS auto-discovery** – finds the JMRI WiThrottle server on the network (`_withrottle._tcp`) automatically, with a saved-IP fallback and a picker when several servers are present.
 - **On-device Wi-Fi/JMRI provisioning** – a SoftAP captive portal (`WiThrottle-Setup`); configure Wi-Fi and JMRI from a phone browser, no recompile or serial needed. Entered automatically on first boot / repeated Wi-Fi failure, or via **Settings → Reconfigure Wi-Fi**.
+- **Battery readout** – LiPo charge as an icon + % on the home and throttle screens (calibrated ADC on GPIO1, discharge‑curve mapping, charging indicator), refreshed every few seconds.
 
 ## Navigation map
 
@@ -180,12 +183,12 @@ The splash shows the release version (from the latest `vX.Y` git tag) and a smal
 
 ## Licence
 
-This project's own code is **MIT** (see [`LICENSE`](LICENSE)). It uses third-party components under their own licences — most importantly the **WiThrottleProtocol** library (a git submodule, [`honzup/WiThrottleProtocol`](https://github.com/honzup/WiThrottleProtocol)), which is **CC BY-SA 4.0** (attribution + share-alike), not MIT. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for the full list and attribution.
+This project's own code is **MIT** (see [`LICENSE`](LICENSE)). It uses third-party components under their own licences — most importantly the **WiThrottleProtocol** library (a git submodule, [`honzup/WiThrottleProtocol`](https://github.com/honzup/WiThrottleProtocol)), which is **CC BY-SA 4.0** (attribution + share-alike). See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for the full list and attribution.
 
 ## Acknowledgements
 
-This project began from **[`len0rd/withrottle_dial`](https://github.com/len0rd/withrottle_dial)** by **Tyler Miller ([@len0rd](https://github.com/len0rd))** — the original proof-of-concept WiThrottle controller for the Waveshare ESP32 dial, now **MIT-licensed** (© 2026 len0rd). The **SquareLine UI design** (the home / roster / settings screens under `sq_studio_prj/` and `components/ui/generated/`) originates from his work and is used here under that MIT licence with attribution. The application logic (WiThrottle client, screen manager, settings store, console, provisioning, recents, OTA, …) was independently re-authored for this project.
+This project began from **[`len0rd/withrottle_dial`](https://github.com/len0rd/withrottle_dial)** by **Tyler Miller ([@len0rd](https://github.com/len0rd))** — the original proof-of-concept WiThrottle controller for the Waveshare ESP32 dial. The **SquareLine UI design** (the home / roster / settings screens under `sq_studio_prj/` and `components/ui/generated/`) originates from his work and is used here under MIT licence with attribution. The application logic (WiThrottle client, screen manager, settings store, console, provisioning, recents, OTA, …) was independently re-authored for this project.
 
 The WiThrottleProtocol library is consumed as a git submodule from **[`honzup/WiThrottleProtocol`](https://github.com/honzup/WiThrottleProtocol)**, a fork of the upstream **[`flash62au/WiThrottleProtocol`](https://github.com/flash62au/WiThrottleProtocol)** whose ESP-IDF adaptation (CMake + Arduino-compat shim) was contributed by @len0rd and is redistributed under CC BY-SA 4.0.
 
-Huge thanks for the foundation. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for licensing details.
+See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for licensing details.
