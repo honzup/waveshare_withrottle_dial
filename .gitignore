@@ -1,0 +1,12 @@
+# Secrets (compile-time WiFi/JMRI defaults)
+src/secrets.h
+
+# Brainstorming companion scratch
+.superpowers/
+
+# Build output
+.pio/
+build/
+
+# ESP-IDF managed components (downloaded at build time)
+managed_components/

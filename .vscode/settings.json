@@ -1,0 +1,14 @@
+{
+  "idf.currentSetup": "/home/tmiller/.espressif/v5.5.3/esp-idf",
+  "clangd.path": "${userHome}/.espressif/tools/esp-clang/esp-19.1.2_20250312/esp-clang/bin/clangd",
+  "clangd.arguments": [
+    "--background-index",
+    "--query-driver=**",
+    "--compile-commands-dir=${userHome}/code/withrottle_dial/build"
+  ],
+  "idf.flashType": "UART",
+  "idf.port": "/dev/ttyACM0",
+  "idf.openOcdConfigs": [
+    "board/esp32s3-builtin.cfg"
+  ],
+}

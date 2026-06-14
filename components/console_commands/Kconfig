@@ -1,0 +1,27 @@
+config CONSOLE_COMMANDS
+    bool "Enable Console Commands"
+    default y
+    help
+        Enable the Console commands for the console. This includes commands like
+        'reboot', 'top', 'stats', 'help', and 'version'.
+
+menu "Console Commands"
+    depends on CONSOLE_COMMANDS
+
+    config CONSOLE_COMMANDS_REBOOT
+        bool "Enable Reboot Command"
+        default y
+
+    config CONSOLE_COMMANDS_STATS
+        bool "Enable Stats Command"
+        default y
+
+    config CONSOLE_COMMANDS_TOP
+        bool "Enable Top Command"
+        default y
+
+    config CONSOLE_COMMANDS_HEAP
+        bool "Enable Heap Command"
+        default y
+
+endmenu

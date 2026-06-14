@@ -1,0 +1,4 @@
+[submodule "components/withrottle"]
+	path = components/withrottle
+	url = https://github.com/honzup/WiThrottleProtocol.git
+	branch = esp-idf-component

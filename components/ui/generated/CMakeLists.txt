@@ -1,0 +1,14 @@
+SET(SOURCES screens/ui_Main_Screen.c
+    screens/ui_Settings_Screen.c
+    screens/ui_Select_Train_Screen.c
+    screens/ui_Train_Main_Control.c
+    screens/ui_Train_Fn_Control.c
+    ui_theme_manager.c
+    ui_themes.c
+    ui.c
+    components/ui_comp_hook.c
+    ui_helpers.c
+    ui_events.c
+    images/ui_img_arrow_back_40dp_e3e3e3_fill0_wght400_grad0_opsz40_png.c)
+
+add_library(ui ${SOURCES})
